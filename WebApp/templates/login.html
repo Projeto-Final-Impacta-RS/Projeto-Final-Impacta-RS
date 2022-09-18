@@ -1,0 +1,18 @@
+{% extends 'dependencies.html' %}
+{% load static%}
+{% block content %}
+    <form method="POST" action="">
+        {% csrf_token %}
+        <p></p>
+        <h3>Bem vindo candidato!</h3>
+        <p>Essa é nossa área para a etapa de testes do processo seletivo.</p>
+        <p>Caso já seja cadastrado, acesse sua área de testes com seu usuário e senha.</p>
+        <p>Caso ainda não seja cadastrado, clique no "Registre-se aqui" logo abaixo e cadastre-se para acessar sua área de testes.</p>
+        <p><input type="text" name="username" placeholder="Usuário"></p>
+        <p><input type="password" name="password" placeholder="Senha" ></p>
+        <input class="btn btn-success" type="submit" value="Login">
+        <p></p>
+        <p>Ainda não é cadastrado?<a href='{% url 'register' %}'> Registre-se aqui!</a></p>
+    </form>
+</div>
+{% endblock %}

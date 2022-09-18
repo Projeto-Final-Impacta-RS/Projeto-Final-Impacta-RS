@@ -1,0 +1,66 @@
+
+{% extends 'dependencies.html' %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+
+<h1>Teste de Lógica</h1>
+
+<div align="right" id="displayCronometro"><b>Tempo: 0 segundos</b></div>
+
+ <form method='post' action=''>
+    {% csrf_token %}
+    {% for questao in questoes%}
+    <div class="form-group">
+      <label for="questao">{{questao.descricao}}</label>
+    </div>
+    <div class="form-check">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{questao.descricao}}" id="gridRadios1" value="alternativa1" checked>
+            <label class="form-check-label" for="gridRadios1">
+                {{questao.alternativa1}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{questao.descricao}}" id="gridRadios2" value="alternativa2">
+            <label class="form-check-label" for="gridRadios2">
+                {{questao.alternativa2}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{questao.descricao}}" id="gridRadios3" value="alternativa3">
+            <label class="form-check-label" for="gridRadios3">
+                {{questao.alternativa3}}
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="{{questao.descricao}}" id="gridRadios4" value="alternativa4">
+            <label class="form-check-label" for="gridRadios4">
+                {{questao.alternativa4}}
+            </label>
+        </div>
+        <br>
+    </div>    
+    {% endfor %}
+    <input id='cronometro' type='hidden' name="cronometro" value="">
+    <br>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+    {% block script %}
+        <script>
+            const displayCronometro = document.getElementById('displayCronometro')
+            const cronometro = document.getElementById('cronometro')
+
+            let tempo=0
+            setInterval(()=>{
+                tempo+=1
+                displayCronometro.innerHTML ="<b>Tempo: " + tempo +" segundos</b>"
+                cronometro.value = tempo
+            },1000)
+        </script>
+    {% endblock script %}
+
+</div>
+{% endblock %}
+ 

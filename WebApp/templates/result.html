@@ -1,0 +1,24 @@
+{% extends 'dependencies.html' %}
+
+{% block content %}
+
+<div class="container ">
+        
+    <div class="card-columns" style="padding: 10px; margin: 20px;">
+        <div class="card" align="center" style="width: 32rem; border:5px black solid">
+            <img class="card-img-top" src="https://www.craibas.al.gov.br/wp-content/uploads/2021/11/dcf4fd99-2e22-4995-80f5-bd565cd7ae42.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Pontuação: {{pontuacao}}</h5>
+                <p class="card-text">Percentual de Acertos: {{percentual}}%</p>
+                <p class="card-text">Tempo: {{tempo}} seconds</p>
+                <p class="card-text">Respostas Corretas: {{acertos}}</p>
+                <p class="card-text">Respostas Incorretas: {{erros}}</p>
+                <p class="card-text">Total de Questões: {{total}}</p>
+                <h5>Desejamos boa sorte para você no processo!</h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
